@@ -1,6 +1,7 @@
 ﻿using backend.DTOs;
 using backend.Interfaces;
 using backend.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -54,6 +55,7 @@ namespace backend.Controllers
             return Ok(new { Token = token, RefreshToken = refreshToken });
         }
 
+        [Authorize]
         [HttpPost("refresh")]
         public async Task<IActionResult> RefreshTokenAsync([FromBody] RefreshTokenDto refreshTokenDto)
         {
@@ -67,6 +69,7 @@ namespace backend.Controllers
             return Ok(new { Token = token, RefreshToken = refreshToken });
         }
 
+        [Authorize]
         [HttpPost("logout")]
         public async Task<IActionResult> LogoutAsync([FromBody] RefreshTokenDto refreshTokenDto)
         {

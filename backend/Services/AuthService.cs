@@ -60,6 +60,7 @@ namespace backend.Services
 
             var claims = new[]
             {
+                new Claim("UserId", user.UserId.ToString()),
                 new Claim(ClaimTypes.Name, user.UserName),
                 new Claim(ClaimTypes.Email, user.UserEmail),
                 new Claim(ClaimTypes.Role, user.Role)

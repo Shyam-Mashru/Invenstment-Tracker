@@ -13,6 +13,5 @@ namespace backend.Interfaces
         Task<string> GenerateRefreshToken(User user);
         Task<User?> GetUserFromRefreshToken(string refreshToken);
         Task RevokeRefreshTokenAsync(User user);
-
     }
 }
